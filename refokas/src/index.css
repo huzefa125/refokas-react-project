@@ -2,8 +2,51 @@
 
 body {
   overflow-x: hidden;
+  font-size: 16px;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+/* Responsive images and videos */
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Responsive typography */
+@media (max-width: 600px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/* Responsive container example */
+.container, .main, .content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+/* Stack columns on mobile */
+@media (max-width: 768px) {
+  .row, .flex-row {
+    flex-direction: column !important;
+  }
+  .col, .flex-col {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* Responsive navigation (example) */
+@media (max-width: 768px) {
+  .navbar, .nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }

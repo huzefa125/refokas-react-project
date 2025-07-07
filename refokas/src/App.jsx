@@ -14,16 +14,16 @@ function App() {
       <div className='mb-12'>
         <Work />
       </div>
-      <div className='mb-12'>
+      <div className=''>
         <Stripes />
       </div>
-      <div className='mb-12'>
+      <div className='mb-6'>
         <Products />
       </div>
-      <div className='mb-12'>
+      <div className=''>
         <Marquees />
       </div>
-      <div className='mb-12'>
+      <div className=''>
         <Cards />
       </div>
       <Footer />

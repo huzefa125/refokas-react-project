@@ -28,11 +28,11 @@ var images = [
     ],
   ];
   return (
-    <div className='w-full min-h-[200px] bg-zinc-900 font-["Satoshi"] flex flex-col md:flex-row mt-10 gap-6 px-4 md:px-0'>
+    <div className='w-full min-h-[200px] relative bg-zinc-900 font-["Satoshi"] flex flex-col md:flex-row mt-1 gap-6 px-4 md:px-0'>
         {images.map((item, idx)=>(
           <Marquee key={idx} imagesurl={item} />
         ))}
-      
+        
     </div>
   )
 }

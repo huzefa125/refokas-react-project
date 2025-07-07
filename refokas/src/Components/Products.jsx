@@ -52,82 +52,36 @@ function Products() {
   };
 
   return (
-    <div className="mt-32 relative">
-      {products.map((val, index) => (
-        <Product key={index} val={val} mover={mover} count={index} />
-      ))}
-      <div className="absolute top-0 w-full h-full pointer-events-none">
+    <div className="mt-16 md:mt-32 relative px-2 md:px-0">
+      <div className="flex flex-col gap-6 md:gap-0">
+        {products.map((val, index) => (
+          <Product key={index} val={val} mover={mover} count={index} />
+        ))}
+      </div>
+      {/* Responsive video window */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full flex justify-center pointer-events-none">
         <motion.div
           initial={{ y: pos, x: "-50%" }}
           animate={{ y: pos + `rem` }}
           transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.6 }}
-          className="window absolute w-[32rem] h-[23rem] left-[44%] rounded-3xl overflow-hidden"
+          className="window w-[90vw] max-w-lg md:w-[32rem] md:h-[23rem] h-[50vw] max-h-[23rem] rounded-3xl overflow-hidden shadow-lg"
         >
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-            className="w-full h-full"
-          >
-            <video
-              className="absolute object-cover rounded-3xl"
-              autoPlay
-              muted
-              loop
-              src={arqitel}
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-            className="w-full h-full"
-          >
-            <video
-              className="absolute object-cover rounded-3xl"
-              autoPlay
-              muted
-              loop
-              src={ttr}
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-            className="w-full h-full"
-          >
-            <video
-              className="absolute object-cover rounded-3xl"
-              autoPlay
-              muted
-              loop
-              src={yir}
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-            className="w-full h-full"
-          >
-            <video
-              className="absolute object-cover rounded-3xl"
-              autoPlay
-              muted
-              loop
-              src={yahoo}
-            ></video>
-          </motion.div>
-          <motion.div
-            animate={{ y: -pos + `rem` }}
-            transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
-            className="w-full h-full"
-          >
-            <video
-              className="absolute object-cover rounded-3xl"
-              autoPlay
-              muted
-              loop
-              src={rainfall}
-            ></video>
-          </motion.div>
+          {[arqitel, ttr, yir, yahoo, rainfall].map((src, idx) => (
+            <motion.div
+              key={src}
+              animate={{ y: -pos + `rem` }}
+              transition={{ ease: [0.76, 0, 0.24, 1], duration: 0.5 }}
+              className="w-full h-full"
+            >
+              <video
+                className="absolute object-cover rounded-3xl w-full h-full"
+                autoPlay
+                muted
+                loop
+                src={src}
+              ></video>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </div>
